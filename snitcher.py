@@ -1,15 +1,18 @@
 import json
 
 with open('word_list.json') as wl:
-		wordlist = json.load(wl)
+        bad_words_list = json.load(wl)
 
-def snitch(word):
 
-	wrd = word.lower()
-	wrdL = []
-	wrdL.append(wrd)
+def snitch(words):
 
-	comparision = set(wordlist).intersection(wrdL)
+    words = words.lower()
+    
+    user_input_words = words.split(" ")
+    
+    comparision = set(bad_words_list).intersection(user_input_words)
+    return comparision
+    # print(wordlist)
 
-	return comparision
-	# print(wordlist)
+
+# print  (snitch("ass and boobs are bad words "))
